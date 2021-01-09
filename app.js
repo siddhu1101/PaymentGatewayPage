@@ -2,6 +2,8 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 
+const db = require("../PaymentGatewayPage/util/database");
+
 const app = express();
 
 app.set("view engine", "ejs");
@@ -14,11 +16,15 @@ app.get('/', (req, res, next) => {
     res.render("payment-page", {
         pageTitle: "Payment",
     });
-})
+});
 
 app.post('/', (req, res, next) => {
-    console.log(req.body.cardname,req.body.cardnumber,req.body.expdate,req.body.cvv);
-    res.redirect("/");
-})
+    db.execute("INSERT INTO carddetails (cardHolderName, cardNumber, cvv, expdate) VALUES (?,?,?,?)",
+    [req.body.cardholdername, req.body.cardnumber, req.body.cvv, req.body.expdate]).then(() => {
+        res.redirect("/");
+    }).catch(err => {
+        console.log(err);
+    });
+});
 
 app.listen(process.env.PORT || 4500);

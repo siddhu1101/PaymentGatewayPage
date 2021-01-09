@@ -1,15 +1,17 @@
 .container {
     margin: 80px 400px 80px 400px;
     display: flex;
-    justify-content : space-between;
+    justify-content: space-between;
     align-items: center;
     background-color: #f2f2f2;
     padding: 5px 20px 15px 20px;
     border: 1px solid lightgrey;
     border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
 }
 
-.col-50 input{
+.col-50 input {
     margin-right: 40px;
     width: 50%;
     margin-bottom: 20px;
