@@ -21,4 +21,4 @@ app.post('/', (req, res, next) => {
     res.redirect("/");
 })
 
-app.listen(listen(process.env.PORT || 4500));
+app.listen(process.env.PORT || 4500);
