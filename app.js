@@ -17,8 +17,8 @@ app.get('/', (req, res, next) => {
 })
 
 app.post('/', (req, res, next) => {
-    console.log(req);
     console.log(req.body.cardname,req.body.cardnumber,req.body.expdate,req.body.cvv);
+    res.redirect("/");
 })
 
-app.listen(4500);
+app.listen(listen(process.env.PORT || 4500));
