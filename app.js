@@ -24,7 +24,13 @@ app.post('/', (req, res, next) => {
         res.redirect("/");
     }).catch(err => {
         console.log(err);
+        res.status(500).json("Card Number already exists.");
+        throw new Error(err.sqlMessage);
     });
 });
+
+app.use((req, res, next) => {
+    res.status(404).render('404', { pageTitle: 'Page Not Found', path: '/' });
+})
 
 app.listen(process.env.PORT || 4500);

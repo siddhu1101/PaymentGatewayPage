@@ -22,19 +22,19 @@
                     <i class="fa fa-cc-discover" style="color:orange;"></i>
                 </div>
                 <div class="input-data">
-                    <label for="holderName">Name on Card</label>
+                    <label for="holderName">*Name on Card</label>
                     <input type="text" id="holderName" name="cardholdername" placeholder="Card Holder Name" required>
-                    <label for="cardNum">Credit card number</label>
+                    <label for="cardNum">*Credit card number</label>
                     <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="16" id="cardNum" name="cardnumber" placeholder="Valid Card Number" required>
                 </div>
                 <div class="row">
                     <div class="col-50">
-                        <label for="expireMonthYear">Expiration Date</label>
-                        <input type="text" id="expireMonthYear" name="expdate" placeholder="MM/YY" required>
+                        <label for="expireMonthYear">*Expiration Date</label>
+                        <input type="text" oninput="javascript: if (this.value.length == 2) this.value = this.value.concat('/'); if (this.value.length > 5) this.value = this.value.slice(0, this.maxLength);" id="expireMonthYear" name="expdate" placeholder="MM/YY" required>
                     </div>
                     <div class="col-50">
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+                        <label for="cvv">*CVV</label>
+                        <input type="text" oninput="javascript: if (this.value.length > 3) this.value = this.value.slice(0, this.maxLength);" id="cvv" name="cvv" placeholder="CVV" required>
                     </div>
                 </div>
                 <input type="submit" value="Submit" class="btn">
